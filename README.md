@@ -22,12 +22,15 @@ A2:
 |0|0x00000000|?|
 
 Q3:(From Lecture 3) We have placed the kernel and user environment in the same address space. Why will user programs not be able to read or write the kernel's memory? What specific mechanisms protect the kernel memory?
+
 A3:用户没有权限访问PTE_U置零的页表。
 
 Q4:What is the maximum amount of physical memory that this operating system can support? Why?
+
 A4:256M JOS needs to map all physical memory at virtual memory
 
 Q5:How much space overhead is there for managing memory, if we actually had the maximum amount of physical memory? How is this overhead broken down?
+
 A5:
 page directory:1 page = 4 KB
 page table = (4KB/4 byte)page = 4MB
@@ -35,6 +38,7 @@ pages 32768*16byte = 512KB
 如果使用大页，pagetable的空间会节省下来，但是可能有浪费。
 
 Q6:Revisit the page table setup in kern/entry.S and kern/entrypgdir.c. Immediately after we turn on paging, EIP is still a low number (a little over 1MB). At what point do we transition to running at an EIP above KERNBASE? What makes it possible for us to continue executing at a low EIP between when we enable paging and when we begin running at an EIP above KERNBASE? Why is this transition necessary?
+
 A6：
 在~kern/entrypgdir.c 里，把VA的[0, 4MB)和[KERNBASE, KERNBASE+4MB)映射到了PA的[0, 4MB)，paging使用前后，映射的都是同一块物理空间，所以可以连续执行。
 
