@@ -2,6 +2,7 @@
 
 ## Question
 Q1:Assuming that the following JOS kernel code is correct, what type should variable x have, uintptr_t or physaddr_t?
+
 A1: uintptr_t
 
 Q2:What entries (rows) in the page directory have been filled in at this point? What addresses do they map and where do they point? In other words, fill out this table as much as possible:
@@ -13,10 +14,10 @@ A2:
 |1023|0xffc00000|Page table for remapped whole physical memory|
 |...|...|Page table for remapped whole physical memory|
 |960|0xf0000000|Page table for remapped whole physical memory|
-|959|0xef7c0000|?|
-|958|0xef800000|Page table for kernel stack|
+|959|0xef7c0000|CPU Kernel Stack|
+|958|0xef800000|?|
 |957|0xef400000|Current page table|
-|956|0xef000000|Page table for `struct Page`s|
+|956|0xef000000|READ-ONLY PAGES|
 |...|...|?|
 |1|0x00400000|?|
 |0|0x00000000|?|
