@@ -1,6 +1,6 @@
 # lab2 answer
 
-##Question
+## Question
 Q1:Assuming that the following JOS kernel code is correct, what type should variable x have, uintptr_t or physaddr_t?
 A1: uintptr_t
 
@@ -43,9 +43,9 @@ A6：
 在~kern/entrypgdir.c 里，把VA的[0, 4MB)和[KERNBASE, KERNBASE+4MB)映射到了PA的[0, 4MB)，paging使用前后，映射的都是同一块物理空间，所以可以连续执行。
 
 
-##Challenge
+## Challenge
 
-###showmappings
+### showmappings
 
 ```
 Usage: showmappings [vastart] [vaend]  show all maps in range [vastart, vaend)
@@ -57,7 +57,7 @@ K> showmapping 0xf0000010 0xf0800001
 0xf0800000-0xf0bfffff -> 0x00800000-0x00bfffff 4M rws
 ```
 
-###change permission
+### change permission
 
 ```
 Usage: changepgperm [addr] [u|s|r|w]
@@ -75,7 +75,7 @@ K> showmappings 0xf0000000
 0xf0000000-0xf03fffff -> 0x00000000-0x003fffff 4M r-u
 ```
 
-###dump
+### dump
 ```
 usage: dump [v/p] [addr] [range]
 ```
